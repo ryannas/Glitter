@@ -11,8 +11,8 @@
 GLITTER_SIMPLE_MAIN_BEGIN() {
     // define shaders
     Glitter::Shader Shader;
-    Shader.attach("VertexShader.vert");
-    Shader.attach("FragmentShader.frag");
+    Shader.attach("LearnOpenGL/1-HelloTriangles/VertexShader.vert");
+    Shader.attach("LearnOpenGL/1-HelloTriangles/FragmentShader.frag");
 
     Shader.activate();
     Shader.link();

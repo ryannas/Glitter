@@ -17,6 +17,8 @@ namespace Glitter
 
     void Shader::bind(unsigned int location, float value) { glUniform1f(location, value); }
 
+    void Shader::bind(unsigned int location, int value)  { glUniform1i(location, value); }
+
     void Shader::bind(unsigned int location, glm::vec4 const & value) {
         glUniform4f(location, value[0], value[1], value[2], value[3]);
     }
