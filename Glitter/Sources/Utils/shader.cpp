@@ -7,7 +7,7 @@
 #include <memory>
 
 // Define Namespace
-namespace Mirage
+namespace Glitter
 {
     Shader & Shader::activate()
     {
@@ -22,8 +22,17 @@ namespace Mirage
     Shader & Shader::attach(std::string const & filename)
     {
         // Load GLSL Shader Source from File
-        std::string path = PROJECT_SOURCE_DIR "/Mirage/Shaders/";
-        std::ifstream fd(path + filename);
+        const std::string path = PROJECT_SOURCE_DIR "/Glitter/Shaders/";
+        const std::string filepath = path + filename;
+        std::ifstream fd(filepath);
+
+        // check if file opened successfully
+        if (!fd.is_open())
+        {
+            fprintf(stderr, "Failed to open shader file: %s\n", filepath.c_str());
+            return *this;
+        }
+
         auto src = std::string(std::istreambuf_iterator<char>(fd),
                               (std::istreambuf_iterator<char>()));
 
